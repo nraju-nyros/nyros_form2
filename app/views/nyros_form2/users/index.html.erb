@@ -1,0 +1,32 @@
+<br><br>
+<div class="container">
+	<div>
+		<h2>Users</h2>
+		<%= link_to "New_user", new_user_path %>
+	</div>
+	<table class="table">
+	<thead>
+    <tr>
+    	<th>Id</th>
+		  <th>name</th>
+		  <th>email</th>
+		  <th>mobile</th>
+    </tr>
+	</thead>
+	<tbody>
+		<% @users.each do |u| %>
+		<tr>
+			<td><%= u.id %> </td>
+			<td><%= u.name %></td>
+	    <td><%= u.mobile %></td>
+		  <td><%= u.email %></td>
+		</tr>
+		<% end %> 
+	</tbody>
+</table>
+
+	
+
+</div>
+
+
