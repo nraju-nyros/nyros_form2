@@ -11,13 +11,13 @@ First add the gem to your Gemfile and run the bundle command.
 gem 'nyros_form2'
 ```
 
-```Next, mount the engine in your routes.rb under the path you want.
-
+Next, mount the engine in your routes.rb under the path you want.
+```
 mount NyrosForm2::Engine => "/nyros_form2"
 ```
 
-```Then copy over the migrations and run them.
-
+Then copy over the migrations and run them.
+```
 rake nyros_form2:install:migrations
 rake db:migrate
 ```
