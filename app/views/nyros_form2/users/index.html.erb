@@ -1,9 +1,13 @@
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 <br><br>
 <div class="container">
 	<div>
 		<h2>Users</h2>
-		<%= link_to "New_user", new_user_path %>
-	</div>
+		<%= link_to "New_user", new_user_path, :class => 'btn btn-sm btn-success' %> 
+	</div><br>
 	<table class="table">
 	<thead>
     <tr>
@@ -11,6 +15,7 @@
 		  <th>name</th>
 		  <th>email</th>
 		  <th>mobile</th>
+		   <th>Actions</th>
     </tr>
 	</thead>
 	<tbody>
@@ -18,8 +23,29 @@
 		<tr>
 			<td><%= u.id %> </td>
 			<td><%= u.name %></td>
-	    <td><%= u.mobile %></td>
 		  <td><%= u.email %></td>
+		  <td><%= u.mobile %></td>
+		  <td>
+		   	<%= link_to "Edit", edit_user_path(u.id), class: 'btn btn-sm btn-info' %>
+
+		   	 <%= link_to 'Delete', '#',{:class=>"btn btn-danger btn-sm", "data-toggle"=>"modal", "data-target" => "#delete-#{u.id}"} %>
+              <div class="modal fade  " id="delete-<%= u.id %>">
+                  <div class="modal-dialog ">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                       <h5><%= u.name %> User  Delete</h5>
+                      </div>
+                      <div class="modal-body">
+                       <p>Are you sure to delete this User?</p>
+                      </div>
+                      <div class="modal-footer">
+                        <%= link_to 'Delete', user_path(u), method: :delete, :class => 'btn btn-danger btn-sm' %>
+                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+              </div>	
+		   	</td>
 		</tr>
 		<% end %> 
 	</tbody>

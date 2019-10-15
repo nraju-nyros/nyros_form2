@@ -17,7 +17,7 @@ module NyrosForm2
         redirect_to users_path
 
       else   
-       render user_new_path
+       render new_user_path
       end   
     end
    
@@ -26,14 +26,28 @@ module NyrosForm2
       @user = User.find(params[:id])
     end
 
-    def edit
-    end
+    def edit 
+      @user = User.find(params[:id]) 
+    end 
+   
+    def update   
+      @user = User.find(params[:id])   
+      if @user.update_attributes(user_params)   
+        redirect_to users_path
+      else     
+        render :edit   
+      end   
+    end   
 
-    def update
-    end
-
-    def delete
-    end
+    def destroy   
+     @user = User.find(params[:id])   
+      @user.destroy
+      respond_to do |format|
+        format.html { redirect_to users_url, notice: 'user succesfully deleted' }
+        format.json { head :no_content}
+        format.js  { render :layout => false }
+      end    
+    end   
 
     def user_params   
       params.require(:user).permit(:name, :email, :mobile);  
