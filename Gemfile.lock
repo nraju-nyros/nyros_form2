@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    nyros_form2 (0.1.5)
+    nyros_form2 (0.1.7)
       rails (~> 5.2)
 
 GEM

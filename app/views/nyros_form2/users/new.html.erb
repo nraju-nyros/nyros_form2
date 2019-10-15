@@ -1,9 +1,15 @@
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
+
+
+
 <body >
 <div class="container" >
 	<div class="form-horizontal no-border form u-dimension-2"  
-	    style ="margin-top: 20px; width: 450px;"align="center" >
+	    style ="margin-top: 100px; width: 450px;"align="center" >
 
-		<%= form_for @user, url: {action: :create} do |f| %>
+	
+		<%= form_for @user , :url => {:action => "create", :controller => "users"} do |f| %>
+		
 		 <h2 align="center">User Form </h2>
 		
 
@@ -33,16 +39,40 @@
 
 		  <div class="form-group">
 			  <div class="col-sm-12">
-			    <%= f.submit "Submit", class: 'submitBtn btn btn-block btn-success btn', id: 'modal-submit' %>
+			    <%= f.submit "Submit", class: 'submitBtn btn btn-block btn-success btn modal_btn', id: 'modal-submit' %>
 		    </div>
 		  </div>
 		<% end %>
   </div>
 
 </div> 
+</body>
+
+<script type="text/javascript">
+  $(".modal_btn").click(function(){
+
+    jQuery.validator.addMethod("lettersonly", function(value, element) {
+      return this.optional(element) || /^[a-zA-Z\\ \\.\\]+$/.test(value);
+    }, "Letters only please"); 
+     
+    $(".new_rating").validate();
+
+    $("#rating_comments").rules("add", {
+      required:true,
+        lettersonly: true,
+        minlength:10,
+        maxlength:300,
+         messages: {
+              required: "*Please Enter comment."
+      }
+    });
+  })
+
+     
+
+</script>
 
 
- </body>
 <style type="text/css">
   .form-group{
 	width:356px;
