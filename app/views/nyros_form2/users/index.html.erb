@@ -1,31 +1,29 @@
-
 <br><br>
 <div class="container">
-	<div>
-		<h2>Users</h2>
-		<%= link_to "Add user", new_user_path, :class => 'btn btn-sm btn-success' %> 
-	</div><br>
+	<h2>Users</h2>
+	<%= link_to "Add user", new_user_path, :class => 'btn btn-sm btn-success' %> <br><br>
 	<table class="table">
-	<thead>
-    <tr>
-    	<th>Id</th>
-		  <th>Name</th>
-		  <th>Email</th>
-		  <th>Mobile</th>
-		   <th>Actions</th>
-    </tr>
-	</thead>
-	<tbody>
-		<% @users.each do |u| %>
-		<tr>
-			<td><%= u.id %> </td>
-			<td><%= u.name %></td>
-		  <td><%= u.email %></td>
-		  <td><%= u.mobile %></td>
-		  <td>
-		   	<%= link_to "Edit", edit_user_path(u.id), class: 'btn btn-sm btn-info' %>
 
-		   	 <%= link_to 'Delete', '#',{:class=>"btn btn-danger btn-sm", "data-toggle"=>"modal", "data-target" => "#delete-#{u.id}"} %>
+		<thead>
+	    <tr>
+	    	<th>Id</th>
+			  <th>Name</th>
+			  <th>Email</th>
+			  <th>Mobile</th>
+			  <th>Actions</th>
+	    </tr>
+		</thead>
+
+		<tbody>
+			<% @users.each do |u| %>
+			<tr>
+				<td><%= u.id %> </td>
+				<td><%= u.name %></td>
+			  <td><%= u.email %></td>
+			  <td><%= u.mobile %></td>
+			  <td>
+			   	<%= link_to "Edit", edit_user_path(u.id), class: 'btn btn-sm btn-info' %>
+			   	 <%= link_to 'Delete', '#',{:class=>"btn btn-danger btn-sm", "data-toggle"=>"modal", "data-target" => "#delete-#{u.id}"} %>
               <div class="modal fade  " id="delete-<%= u.id %>">
                   <div class="modal-dialog ">
                     <div class="modal-content">
@@ -42,14 +40,15 @@
                     </div>
                   </div>
               </div>	
-		   	</td>
-		</tr>
-		<% end %> 
-	</tbody>
-</table>
-
-	
-
+			   	</td>
+			</tr>
+			<% end %> 
+		</tbody>
+  </table>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 
