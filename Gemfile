@@ -16,3 +16,13 @@ gemspec
 
 
 gem 'pry'
+
+gem 'bootstrap'
+
+gem 'will_paginate'
+gem 'will_paginate-bootstrap4'
+
+# Use SCSS for stylesheets
+gem 'sass-rails'
+
+gem 'jquery-rails'

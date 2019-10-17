@@ -1,258 +1,40 @@
-<body >
-	<div class="container" >
-		<div class="form-horizontal no-border form u-dimension-2"  
-		      style ="margin-top: 100px; width: 450px;"align="center" >
-			<%= form_for @user, :user => {}, :html => { :name =>"myForm"} do |f| %>
-			<h2 align="center">User Form </h2>
-			
-				<div class="form-group">
-					<div class="col-sm-12">
-					  <%= f.label :name %>
-					  <%= f.text_field :name, autocomplete: "current-name",name: "name", class: 'form-control'%>
-					</div>
-			  </div>
+<div class="container" >
+	<div class="form-horizontal no-border form u-dimension-2" 
+	      style ="margin-top: 100px; width: 450px;"align="center" >
 
-			  <div class="form-group">
-					<div class="col-sm-12">
-					  <%= f.label :email %>
-					  <span class="err"><%= @user.errors[:email].join('. ') %></span><br/>
-					  <%= f.email_field :email, name: "email", autocomplete: "email",class: 'form-control'%>
-					</div>
-			  </div>
+		<%= form_for @user, :user => {}, :html => { :name =>"myForm"} do |f| %>
+		 <h2 align="center">Update User</h2>
+			<div class="form-group" style="margin-bottom: 2rem;">
+				<div class="col-sm-12">
+				  <%= f.label :name %>
+				  <%= f.text_field :name, autocomplete: "current-name",name: "name", class: 'form-control'%>
+				</div>
+		  </div>
 
-			  <div class="form-group">
-					<div class="col-sm-12">
-					  <%= f.label :mobile %>
-					  <%= f.text_field :mobile,name: "mobile", autocomplete: "current-name",class: 'form-control'%>
-					</div>
-			  </div>
+		  <div class="form-group" style="margin-bottom: 2rem;">
+				<div class="col-sm-12">
+				  <%= f.label :email %>
+				   <span class="err"><%= @user.errors[:email].join('. ') %></span><br/>
+				  <%= f.email_field :email, name: "email", autocomplete: "email",class: 'form-control'%>
+				</div>
+		  </div>
 
-			  <div class="form-group">
-				  <div class="col-sm-12">
-				    <%= f.submit "Submit", class: 'submitBtn btn btn-block btn-success btn modal_btn', id: 'modal-submit' %>
-			    </div>
-			  </div>
-			<% end %>
+		  <div class="form-group" style="margin-bottom: 2rem;">
+				<div class="col-sm-12">
+				  <%= f.label :mobile %>
+				  <%= f.text_field :mobile,name: "mobile", autocomplete: "current-name",class: 'form-control'%>
+				</div>
+		  </div>
 
-			<div>
-				<%= link_to "Back", users_path %>
-			</div>
-	  </div>
-	</div> 
-</body>
+		  <div class="form-group" style="margin-bottom: 2rem;">
+			  <div class="col-sm-12">
+			    <%= f.submit "Submit", class: 'submitBtn btn btn-block btn-success btn modal_btn', id: 'modal-submit' %>
+		    </div>
+		  </div>
+		<% end %>
 
-<script type="text/javascript">
-	$(function() {
-	  $("form[name='myForm']").validate({
-	    rules: {
-	      name: "required",
-	      email: {
-	        required: true,
-	        email: true
-	      },
-	      mobile: {
-	       required: true,
-        digits: true,
-        minlength: 10,
-        maxlength: 10,
-	      }
-	    },
-	    // Specify validation error messages
-	    messages: {
-	      name: "Please enter your firstname",
-	      mobile: {
-	        required: "Please Enter mobile number",
-	        minlength: "Your Mobile must be at least 10 numbers long"
-	      },
-	      email: "Please enter a valid email address"
-	    },
-	    // in the "action" attribute of the form when valid
-	    submitHandler: function(form) {
-	      form.submit();
-	    }
-	  });
-	});
-</script>
-
-<style type="text/css">
-  .form-group{
-		width:356px;
-		margin-bottom: 30px;
-  }
-
-  .form{
-		padding-top: 30px;
-		padding-bottom: 50px;
-  }
-  .col-sm-12{
-		padding-left: 0px;
-		padding-right: 0px;
-  }
-
-  #user_remember_me{  
-		margin-right:0px;
-  }
-  .forgot_pwd{
-	  padding-left: 90px;
-  }
-
-  a:hover{
-	  text-decoration-line: none;
-  }
-
-  #flash_alert{
-	  color: red;
-  }
-
-	#form_email{
-		margin-left: 23px;
-	}
-
-
-
-	#sign_in_from{
-		margin-left: 400px;
-	}
-
-	/*.new_user{
-		margin-top: 100px;
-	}*/
-
-	.form1 {
-	  margin: 0 auto;
-	  width: 470px;
-	  background-color: white;
-	  padding-left: 0px;
-	}
-
-	.form label {
-		display: inline-block;
-		text-align: right;
-		float: left;
-		 
-	}
-
-	.modal_form{
-		margin-top: 0px;
-	}
-
-	.homepage_dish{
-		height: 100%;
-		width: 50%;
-		position:fixed;
-	  }
-	  
-	  .login{
-		padding-right: 20px;
-		color:#0066ff;
-		font-size: 20.3px;
-		line-height: 1.44359;
-		border: 0px;
-		font-weight:700;
-
-
-	  }
-
-	  .login a:hover{
-
-	  }
-
-	  .signup{
-		padding-right: 100px;
-		  color:#0066ff;
-		
-		font-size: 20.3px;
-		line-height: 1.44359;
-		border: 0px;
-		  font-weight:700;
-
-
-	  }
-
-	  .top-left {
-	  position: absolute;
-	  top:450px;
-	  left:10px;
-	  color: #f79b9b;
-	  font-size: 50px;
-	  font-weight: 900;
-
-	}
-
-	 .top-left:hover{
-	  color: #f79b9b;
-	}
-
-	.bottom-right {
-
-	}
-	.bottom_img{
-	  width: 300px;
-	  height: 300px;
-	}
-	.main_header{
-	  font-weight: 800;
-	  font-size:40px;
-	  color: black;
-	}
-
-	a:hover{
-	  text-decoration-line: none;
-	  
-	}
-
-	.u-dimension-2 {
-		box-shadow: 0 0 0 1px rgba(67,41,163,.1), 0 1px 8px 0 rgba(67,41,163,.1);
-	}
-
-	.form {
-		margin: 0 auto;
-		width: 470px;
-		background-color: white;
-		padding-left: 0px;
-	}
-
-
-	.form input{
-		margin-right: 180px;
-	}
-
-	.err {
-		color: red;
-		font-size: 14px;
-	}
-
-	.error {
-	  color: red;
-		font-size: 13px;
-	}
-
-
-	#flash_alert{
-		color: red;
-		font-size: 14px;
-	}
-
-	/*label{
-		margin-bottom: 5px;
-	}*/
-
-
-</style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	  <div>
+		  <%= link_to "Back", users_path %>
+    </div>
+	</div>
+</div>
