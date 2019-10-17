@@ -2,7 +2,7 @@
 // All this logic will automatically be available in application.js.
 
 
-	// On change form validations
+// On change form validations
 $(function() {
   $("form[name='myForm']").validate({
     rules: {

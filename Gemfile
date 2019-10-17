@@ -14,10 +14,11 @@ gemspec
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
 
+# gem 'bootstrap-sass'	
 
 gem 'pry'
 
-gem 'bootstrap'
+gem 'bootstrap', '~> 4.3.1'
 
 gem 'will_paginate'
 gem 'will_paginate-bootstrap4'

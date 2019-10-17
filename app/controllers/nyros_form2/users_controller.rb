@@ -3,7 +3,7 @@ require_dependency "nyros_form2/application_controller"
 module NyrosForm2
   class UsersController < ApplicationController
     def index
-      @users = User.paginate(:per_page => 5, :page => params[:page]).order('created_at DESC')
+      @users =  User.all.paginate(:per_page => 5, :page => params[:page]).order('created_at DESC')
     end
 
     def new
